@@ -12,6 +12,12 @@ export interface IProduct {
 export interface IProductData {
     products: IProduct[];
     preview: string | null;
+    getProduct(productId: string): IProduct;
+    addProductBasket(product: IProduct): void;
+    deleteProductBasket(productId: string): void;
+    getPriceBasket(): void;
+    checkValidationOrderInfo(data: Record<keyof TOrderInfo, string>): boolean;
+    checkValidationClientInfo(data: Record<keyof TClientInfo, string>): boolean;
 }
 
 export interface IBasket {
@@ -29,5 +35,3 @@ export interface IOrder {
 export type TOrderInfo = Pick<IOrder, 'address' | 'payment'>; 
 
 export type TClientinfo = Pick<IOrder, 'email'|'phone'>; 
-
-export interface 

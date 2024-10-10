@@ -29,3 +29,5 @@ export interface IOrder {
 export type TOrderInfo = Pick<IOrder, 'address' | 'payment'>; 
 
 export type TClientinfo = Pick<IOrder, 'email'|'phone'>; 
+
+export interface 

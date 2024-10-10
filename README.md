@@ -110,3 +110,20 @@ export type TClientinfo = Pick<IOrder, 'email'|'phone'>;
 - 'on' - подписка на событие
 - 'emit' - инициализация события
 - 'trigger' - возвращает функцию, при вызове которой инициализируется требуемое в параметрах событие
+
+#### Слой данных
+
+### Класс ProductData
+Класс отвечает за хранение и логику работы с данными товаров.\
+Конструктор класса принимает инстант брокера событий\
+В полях класса хранятся следующие данные:
+- _products: IProduct[] - массив объектов товаров
+- _preview: string | null - id товара, выбранного для просмотра в модальном окне\
+- events: IEvents - экземпляр класса "EventEmitter" для инициализации событий при изменении данных.
+
+Так же класс предоставляет набор методов для взаимодействия с этими данными.
+- addProduct(product: IProduct): void - добавляет 
+    deleteProduct(productId: string): void;
+    getProduct(cardId: string): IProduct;
+    checkValidationOrderInfo(data: Record<keyof TOrderInfo, string>): boolean;
+    checkValidationClientInfo(data: Record<keyof TClientInfo, string>): boolean;

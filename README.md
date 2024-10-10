@@ -122,8 +122,13 @@ export type TClientinfo = Pick<IOrder, 'email'|'phone'>;
 - events: IEvents - экземпляр класса "EventEmitter" для инициализации событий при изменении данных.
 
 Так же класс предоставляет набор методов для взаимодействия с этими данными.
-- addProduct(product: IProduct): void - добавляет 
-    deleteProduct(productId: string): void;
-    getProduct(cardId: string): IProduct;
-    checkValidationOrderInfo(data: Record<keyof TOrderInfo, string>): boolean;
-    checkValidationClientInfo(data: Record<keyof TClientInfo, string>): boolean;
+- getProduct(productId: string): IProduct; - возвращает товар по id.
+- addProductBasket(product: IProduct): void - добавляет товар в корзину.
+- deleteProductBasket(productId: string): void - удаляет товар из корзины.
+- PriceBasket(): void - показывает суммарную стоимость товаров в корзине.
+- checkValidationOrderInfo(data: Record<keyof TOrderInfo, string>): boolean; - валидация информации о заказе. 
+- checkValidationClientInfo(data: Record<keyof TClientInfo, string>): boolean; - валидация информации о клиенте.
+
+### Классы представления
+Все классы представления отвечают за отображение внутри контейнера (DOM-элемент)
+передаваемых в них данных.

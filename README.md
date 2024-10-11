@@ -88,6 +88,12 @@ export type TOrderInfo = Pick<IOrder, 'address' | 'payment'>;
 export type TClientinfo = Pick<IOrder, 'email'|'phone'>;
 ```
 
+Данные о статусе заказа
+
+```
+export type TOrderStatus = Pick<IBasket, 'total'>;
+```
+
 ## Архитектура приложения
 
 Код приложения разделен на слои согласно парадигме MVP:
@@ -125,9 +131,12 @@ export type TClientinfo = Pick<IOrder, 'email'|'phone'>;
 - getProduct(productId: string): IProduct; - возвращает товар по id.
 - addProductBasket(product: IProduct): void - добавляет товар в корзину.
 - deleteProductBasket(productId: string): void - удаляет товар из корзины.
-- PriceBasket(): void - показывает суммарную стоимость товаров в корзине.
+- totalPriceBasket(): void - показывает суммарную стоимость товаров в корзине.
 - checkValidationOrderInfo(data: Record<keyof TOrderInfo, string>): boolean; - валидация информации о заказе. 
 - checkValidationClientInfo(data: Record<keyof TClientInfo, string>): boolean; - валидация информации о клиенте.
+- cleanBasket(): boolean - очистка корзины.
+- cleanOrderInfo(): boolean - очистка данных о заказе.
+- cleanClientInfo(): boolean - очистка данных о клиенте. 
 
 ### Классы представления
 Все классы представления отвечают за отображение внутри контейнера (DOM-элемент)

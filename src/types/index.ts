@@ -15,9 +15,12 @@ export interface IProductData {
     getProduct(productId: string): IProduct;
     addProductBasket(product: IProduct): void;
     deleteProductBasket(productId: string): void;
-    PriceBasket(): void;
+    TotalPriceBasket(): void;
     checkValidationOrderInfo(data: Record<keyof TOrderInfo, string>): boolean;
     checkValidationClientInfo(data: Record<keyof TClientInfo, string>): boolean;
+    cleanBasket(): boolean;
+    cleanOrderInfo(): boolean;
+    cleanClientInfo(): boolean; 
 }
 
 export interface IBasket {
@@ -35,3 +38,5 @@ export interface IOrder {
 export type TOrderInfo = Pick<IOrder, 'address' | 'payment'>; 
 
 export type TClientInfo = Pick<IOrder, 'email'|'phone'>; 
+
+export type TOrderStatus = Pick<IBasket, 'total'>;
